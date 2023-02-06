@@ -1,10 +1,9 @@
-CREATE DATABASE api_dev;
-CREATE USER 'dev'@'localhost' IDENTIFIED BY '!superSecretnax'; 
-CREATE USER 'dev'@'%' IDENTIFIED BY '!superSecretnax'; 
-GRANT ALL PRIVILEGES ON api_dev.* TO 'dev'@'localhost';
-GRANT ALL PRIVILEGES ON api_dev.* TO 'dev'@'%';
+CREATE DATABASE IF NOT EXISTS $DB_DATABASE_NAME;
+CREATE DATABASE $DB_DATABASE_NAME;
+CREATE USER '$DB_USERNAME'@'%' IDENTIFIED BY '$DB_PASSWORD'; 
+GRANT ALL PRIVILEGES ON api_dev.* TO '$DB_USERNAME'@'%';
 FLUSH PRIVILEGES;
-use api_dev;
+use $DB_DATABASE_NAME;
 CREATE table users(
           user_id int not null AUTO_INCREMENT,
           username varchar(100) NOT NULL,

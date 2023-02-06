@@ -1,6 +1,13 @@
 <?php
-define("DB_HOST", "mysql-custom");
-define("DB_USERNAME", "dev");
-define("DB_PASSWORD", "!superSecretnax");
-define("DB_DATABASE_NAME", "api_dev");
+
+$USERNAME = $_ENV['DB_USERNAME'];
+$DB_PASSWORD = $_ENV['DB_PASSWORD'];
+$DB_DATABASE_NAME = $_ENV['DB_DATABASE_NAME'];
+$DB_HOST='mysql-custom';
+
+define('DB_HOST', $DB_HOST);
+define('DB_USERNAME', $USERNAME );
+define('DB_PASSWORD', $DB_PASSWORD);
+define('DB_DATABASE_NAME', $DB_DATABASE_NAME);
+
 ?>
