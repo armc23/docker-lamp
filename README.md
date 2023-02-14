@@ -1,8 +1,9 @@
 The php api  example app 
 
-This  application uses docker, app includes the following images mysql, php-fpm and nginx. 
+This application is for educational purposes.
+Application is builded by using docker, app includes the following images mysql, php-fpm and nginx. 
 App includes examples of linked services, environment variables optimize dependency installation on image building. 
-This php api application returns user data from mysql database through api GET request and allow to add a new entry in database.
+This php api application returns user data (username) from mysql database through api GET request and allow to add a new entry in database.
 
 Example APP
 
@@ -27,10 +28,34 @@ Running the application
               DB_USERNAME=""
               DB_PASSWORD=""
               DB_DATABASE_NAME=""
+
   Run the application.     
          
           docker-compose up -d
 
-  In order to test api calls to php applications use the following.
+  In order to test api GET request to php applications use the following command.
     
-        http:://[your_host_ip]/get.php/user
+        curl http:://[your_host_ip]:8080/users/get.php
+       
+        or
+        
+        curl http://localhost:8080/users/get.php
+  
+  In order to add a new entry into database use the folowing command.
+  
+        curl -H "Content-Type: application/json" -X POST -d '{"name":"mkyong"}' http://[your_host_ip]:8080/users/add.php
+
+        or
+
+        curl -H "Content-Type: application/json" -X POST -d '{"name":"mkyong"}' http://localhost:8080/users/add.php
+    
+  In order to check a new user entry in database you can user GET request command.
+        
+        curl http:://[your_host_ip]:8080/users/get.php
+       
+        or
+        
+        curl http://localhost:8080/users/get.php
+
+       
+
