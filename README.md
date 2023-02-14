@@ -3,7 +3,7 @@ The php api  example app
 This application is for educational purposes.
 Application is builded by using docker, app includes the following images mysql, php-fpm and nginx. 
 App includes examples of linked services, environment variables optimize dependency installation on image building. 
-This php api application returns user data (username) from mysql database through api GET request and allow to add a new entry in database.
+This php api application returns user data (username) from mysql database through api GET request and allow to add a new entry in database through POST request.
 
 Example APP
 
@@ -11,13 +11,13 @@ The example php api app includes dummy code.
 
 Running the application
 
-  Clone the repo and install the dependencies.
+  Clone the repo and install dependencies.
      
      git clone https://github.com/armc23/docker-lamp.git
 
   This project already has a prepared enviroment for that, you have to run:
   Change variable.env.example to variable.env and fill your credentials.
-  Move to project directory and run the following command
+  Move into project directory and run the following commands.
           
           cd docker-lamp 
           cp variable.env.example variable.env
@@ -49,7 +49,7 @@ Running the application
 
         curl -H "Content-Type: application/json" -X POST -d '{"name":"mkyong"}' http://localhost:8080/users/add.php
     
-  In order to check a new user entry in database you can user GET request command.
+  In order to check a new user entry in database you can use the GET request command.
         
         curl http:://[your_host_ip]:8080/users/get.php
        
