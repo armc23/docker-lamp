@@ -41,7 +41,7 @@ Running the application
         
         curl http://localhost:8080/users/get.php
   
-  In order to add a new entry into database use the folowing command.
+  In order to add a new entry into database use the following command.
   
         curl -H "Content-Type: application/json" -X POST -d '{"name":"mkyong"}' http://[your_host_ip]:8080/users/add.php
 
@@ -57,5 +57,15 @@ Running the application
         
         curl http://localhost:8080/users/get.php
 
-       
+ Stop app and remove volumes.
+ 
+  To stop app apply the following command.
+
+     docker-compose down    
+  
+  If you need to remove volume with persistent data apply the following command.
+
+     docker-compose down -v
+
+
 
